@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Todo List </title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Todos</h1>
+    <section>
+      <div>
+        <input id="addTodoTextInput" type="text" placeholder="?">
+        <button onclick="handlers.addTodo()">Add</button>
+        <button onclick="handlers.toggleAll()">Toggle all</button>
+      </div>
+      <div>
+        <input id="changeTodoTextPosition" type="number" min="0" placeholder="Item position?">
+        <input id="changeTodoTextInput" type="text" placeholder="What do you want to change?">
+        <button onclick="handlers.changeTodo()">Change Todo</button>
+      </div>
+      <div>
+        <input type="number" id="toggleTodoPosition" placeholder="Toggle todo?" min="0">
+        <button onclick="handlers.toggleTodo()">Toggle!</button>
+      </div>
+      <ul>
+      </ul>
+    </section>
+  </main>
+  <script src="todo.js"></script>
+</body>
+
+</html>

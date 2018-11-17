@@ -1,0 +1,79 @@
+.container {
+    max-width: 1200rem;
+    margin: 80rem auto;
+    background-color: var(--gray-light-2);
+    box-shadow: var(--shadow-dark);
+    min-height: 500rem;
+    @media only screen and (max-width: $bp-huge) {
+        margin: 0;
+        min-width: 100%;
+    }
+}
+
+.header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-bottom-gray);
+    @media only screen and (max-width: $bp-tiny) {
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 110rem;
+    }
+}
+
+.content {
+    display: flex;
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+}
+
+.sidebar {
+    background-color: var(--gray-dark-1);
+    flex: 0 0 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    background-color: #fff;
+    flex: 1;
+}
+
+.detail {
+    display: flex;
+    padding: 45rem;
+    background-color: var(--gray-light-1);
+    border-bottom: var(--border-bottom-gray);
+    @media only screen and (max-width: $bp-medium) {
+        padding: 30rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+}
+.description {
+    background-color: white;
+    flex: 0 0 60%;
+    margin-right: 45rem;
+    box-shadow: var(--shadow-light);
+    padding: 30rem;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 20rem;
+        margin-right: 30rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+        margin: 0;
+        margin-bottom: 24rem;
+    }
+}
+.user-reviews {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

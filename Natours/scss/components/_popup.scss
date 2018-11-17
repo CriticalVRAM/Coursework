@@ -1,0 +1,102 @@
+.popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(black, .5);
+    z-index: 5000;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+    @include respond(tab-port) {
+        // Media query
+        height: 90vh;
+    }
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    &__close {
+        &:link,
+        &:visited {
+            color: #333;
+            position: absolute;
+            top: 25rem;
+            right: 25rem;
+            font-size: 30rem;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1;
+        }
+        &:hover,
+        &:active {
+            color: $medium-green;
+        }
+    }
+    &__content {
+        @include center-translate;
+        width: 75%;
+        background-color: #fff;
+        box-shadow: 0 20rem 40rem rgba(black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        transform: translate(-50%,-50%) scale(0);
+        transition: .5s .25s;
+        opacity: 0;
+        visibility: hidden;
+        @include respond(tab-port) {
+            // Media query
+            display: block;
+        }
+    }
+    &__left {
+        width: 33.333333333333333%;
+        display: table-cell;
+        @include respond(tab-port) {
+            // Media query
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        }
+    &__right {
+        width: 66.666666666666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 30rem 50rem;
+        @include respond(tab-port) {
+            // Media query
+            display: block;
+            width: 100%;
+            padding: 20rem 40rem;
+            text-align: center;
+        }
+    }
+    &__image {
+        display: block;
+        width: 100%;
+        @include respond(tab-port) {
+            // Media query
+            width: 50%;
+        }
+    }
+    &__text {
+        font-size: 14rem;
+        margin-bottom: 40rem;
+        column-count: 2;
+        column-gap: 40rem;
+        column-rule: 1px solid #eee;
+        hyphens: auto;
+        @include respond(tab-port) {
+            // Media query
+            text-align: left;
+        }
+    }
+    &:target &__content {
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+}

@@ -1,0 +1,78 @@
+.section-about {
+    background-color: $gray-light-1;
+    padding: 250rem 0;
+    margin-top: -20vh;
+    //Media query
+    @include respond(tab-port) {
+        padding: 250rem 0rem;
+    }
+}
+.section-features {
+    padding: 200rem 0;
+    margin-top: -100rem;
+    background-image: linear-gradient(to right bottom, rgba($light-green, .8), rgba($dark-green, .8)), url(../../img/nat-4.jpg);
+    background-blend-mode: hard-light;
+    background-size: cover;
+    transform: skewY(-7deg);
+    &>* {
+    transform: skewY(7deg);
+    }
+    @include respond(tab-port) {
+        padding: 100rem 0rem;
+    }
+}
+
+.section-tours {
+    background-color: $gray-light-1;
+    padding: 250rem 0 150rem 0;
+    margin-top: -100rem;
+    @include respond(tab-port) {
+        // Media query
+        padding: 200rem 0 100rem 0;
+    }
+}
+
+.secion-stories {
+    padding: 150rem 0;
+    position: relative;
+    @include respond(tab-port) {
+        padding: 100rem 0 20rem 0;
+    }
+}
+
+.section-book {
+    padding: 150rem 0;
+    background-image: $lightdark-green-gradient;
+    @include respond(tab-port) {
+        padding: 100rem 0rem;
+    }
+}
+
+.book {
+    background-image:linear-gradient(105deg, rgba($white, .9) 50%, rgba(transparent, 0) 50%), url(../../img/nat-10.jpg);
+    background-size: cover;
+    box-shadow: 0 15rem 4rem rgba($black, .15);
+    border-radius: 3rem;
+    @include respond(tab-land) {
+        // Media query
+        background-image:linear-gradient(105deg, rgba($white, .9) 70%, rgba(transparent, 0) 70%), url(../../img/nat-10.jpg);
+    }
+    @include respond(tab-port) {
+        // Media query
+    background-image:linear-gradient(to right, rgba($white, .9) 100%, rgba(transparent, 0) 100%), url(../../img/nat-10.jpg);        
+    }
+    &__form {
+        padding: 60rem;
+        width: 50%;
+        @include respond(tab-land) {
+            // Media query
+            width: 70%;
+            padding: 50rem;
+        }
+        @include respond(tab-port) {
+            // Media query
+            width: 100%;
+            padding: 40rem;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+.card {
+    //FUNCTION
+    cursor: default;
+    perspective: 1500rem;
+    position: relative;
+    height: 520rem;
+    &__side {
+        height: 520rem;
+        transition: .8s ease;
+        position: absolute;
+        @include position (0, initial, initial, 0);
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3rem;
+        box-shadow: 0 15rem 40rem rgba($black, .15);
+        overflow: hidden;
+        &--front {
+            background-color: $white;
+        }
+        &--back {
+            transform: rotateY(180deg);
+            &--1 {
+                background: $yellow-orange-gradient;
+            }
+            &--2 {
+                background: $lightdark-green-gradient;
+            }
+            &--3 {
+                background: $blue-purple-gradient;
+            }
+        }
+    }
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    } //FRONT SIDE
+    &__image {
+        background-size: cover;
+        height: 230rem;
+        background-blend-mode: color;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        &--1 {
+            background-image: $yellow-orange-gradient, url(../../img/nat-5.jpg);
+        }
+        &--2 {
+            background-image: $lightdark-green-gradient, url(../../img/nat-6.jpg);
+        }
+        &--3 {
+            background-image: $blue-purple-gradient, url(../../img/nat-7.jpg);
+        }
+    }
+    &__title {
+        color: $white;
+        font-size: 28rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        position: absolute;
+        @include position(120rem, 20rem, initial, initial);
+        width: 75%;
+        text-align: right;
+    }
+    &__title--span {
+        padding: 10rem 15rem;
+        box-decoration-break: clone;
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($yellow, .85), rgba($orange, .85));
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($light-green, .85), rgba($dark-green, .85));
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($blue, .85), rgba($purple, .85));
+        }
+    }
+    &__info {
+        padding: 30rem;
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            li {
+                text-align: center;
+                font-size: 15rem;
+                padding: 10rem;
+                &:not(:last-child) {
+                    border-bottom: 1rem solid #eee;
+                }
+            }
+        }
+    } //BACK-SIDE
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+    &__price-box {
+        color: $white;
+        margin-bottom: 80rem;
+    }
+    &__price-only {
+        font-size: 14rem;
+        text-transform: uppercase;
+    }
+    &__price-value {
+        font-size: 60rem;
+        font-weight: 100;
+    } //Media query
+    @media only screen and (max-width: 56.25em), only screen and (hover:none) {
+        height: auto;
+        border-radius: 3rem;
+        background-color: #fff;
+        box-shadow: 0 15rem 40rem rgba($black, .15);
+        &__side {
+            height: auto;
+            transition: .8s ease;
+            position: relative;
+            box-shadow: none;
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%)
+            }
+        }
+        &:hover &__side--front {
+            transform: rotateY(0);
+        } //BACK-SIDE
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 70rem 40rem 40rem 40rem;
+        }
+        &__price-box {
+            margin-bottom: 30rem;
+        }
+        &__price-value {
+            font-size: 40rem;
+        }
+        &__info {
+            padding: 10rem 30rem;
+        }
+    }
+}

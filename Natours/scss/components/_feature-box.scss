@@ -1,0 +1,29 @@
+.feature-box {
+    background-color: rgba($white, .8);
+    font-size: 15rem;
+    text-align: center;
+    padding: 25rem;
+    border-radius: 3rem;
+    box-shadow: 0 15rem 40rem rgba($black, .15);
+    transition: .3s;
+    //Media query
+    @include respond(tab-port) {
+        padding: 20rem;
+
+    }
+    &__icon {
+        font-size: 60rem;
+        margin-bottom: 0.5rem;
+        background-image: linear-gradient(to right, $light-green, $dark-green);
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+        //Media query
+        @include respond(tab-port) {
+            margin: 0;
+        }
+    }
+    &:hover {
+        transform: scale(1.1) translateY(-15rem);
+    }
+}

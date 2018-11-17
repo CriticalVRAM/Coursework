@@ -1,0 +1,53 @@
+:root {
+    --red: #eb2f64;
+    --red-light: #FF3366;
+    --red-dark: #BA265D;
+    --gray-light-1: #faf9f9;
+    --gray-light-2: #f4f2f2;
+    --gray-light-3: #f0eeee;
+    --gray-light-4: #ccc;
+    --gray-dark-1: #333;
+    --gray-dark-2: #777;
+    --gray-dark-3: #999;
+    --shadow-dark: 0 20rem 60rem rgba(0, 0, 0, .15);
+    --border-bottom-gray: 1px solid var(--gray-light-2);
+    --shadow-light: 0 20rem 50rem rgba(0,0,0,.06);
+}
+$bp-huge: 75em;      //1200px
+$bp-large: 68.75em;  //1100px
+$bp-medium: 56.25em; //900px
+$bp-small: 37.5em;   //600px
+$bp-tiny: 31.25em;   //500px
+$bp-nano: 18.75em;   //fuck you
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 6.25%; // 1rem = 1px
+    @media only screen and (max-width: $bp-large) {
+        font-size: 5%;
+    }
+    @media only screen and (max-width: 405px) {
+        font-size: 4%;
+    }
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-image: linear-gradient(to right bottom, var(--red-light), var(--red-dark));
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--gray-dark-1);
+    font-size: 14rem;
+    //remove later
+    min-height: 100vh;
+}
