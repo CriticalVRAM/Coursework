@@ -1,6 +1,6 @@
 # Project made during courses
 
-## That meams they don't count as real projects
+## Or stuff I made randomly to test or learn some things
 
 1. Nano-js-projects and Forkify - [The Complete JavaScript Course 2018: Build Real Projects!](https://www.udemy.com/the-complete-javascript-course/)
 2. Natours, Trilo and Nexter - [Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/advanced-css-and-sass/)
