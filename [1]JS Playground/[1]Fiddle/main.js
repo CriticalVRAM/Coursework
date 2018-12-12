@@ -2,7 +2,6 @@ class Creature {
     constructor(sound) {
         this.sound = sound
     }
-
     talk() {
         console.log(this.sound)
     }
@@ -14,5 +13,5 @@ class Dino extends Creature {
     }
 }
 
-const myDino = new Dino()
-myDino.talk()
+const ZeroTwo = new Dino()
+ZeroTwo.talk()
