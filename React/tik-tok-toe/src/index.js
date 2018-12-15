@@ -4,23 +4,28 @@ import './index.css';
 
 function Square(props) {
     return (
-        // stated below. this is a function so i dosent need 'this'
-        <button className="square" onClick={props.onClick}>
+        <button className={`square ${props.winner}`} onClick={props.onClick}>
             {props.value}
         </button>
     );
 }
 
 class Board extends React.Component {
+    isWinner(i) {
+        let res;
+        if (this.props.board) {
+            if (this.props.board.includes(i)) {
+                res = 'light'
+            }
+        }
+        return res
+    }
     renderSquare(i) {
-        // return a square stateless componenet with the pased data: the square value taken from state with the id given at the redner part
-        // pases a REFERENCE to the handle click function with the I argument binded to it during creation
         return (
             <Square
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
-            // THIS IS THE PROBLEM here is where the I is given ok the prop
-            // Now that the state has been moved we no longer have acces to it. So we change the this.state to this.props
+                winner={this.isWinner(i)}
             />
         );
     }
@@ -61,17 +66,12 @@ class Game extends React.Component {
             isReversed: false,
         }
     }
-    // Lifting state up by moving it to the top level game component that has borad in it
 
     handleClick(i) {
-        // check squares and return if game is won or square has a value
-        // this is so that we discard incorect moves
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
-        // As we cant look into other functions we instead defindem again possible refactor
         const squares = current.squares.slice();
 
-        // take i+1 then if its 1,2,3 then col 1
         const pos = this.state.pos.slice(0, this.state.stepNumber);
         let col = i + 1
         let row;
@@ -88,9 +88,7 @@ class Game extends React.Component {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
-        // Sets the value of curent square based on xIsNext
         squares[i] = this.state.xIsNext ? 'X' : 'O';
-        // Updates state | curent state hitory concat with new array of objects with the squares property set to curent squares as in const squares from the top
         this.setState({
             history: history.concat([{
                 squares: squares
@@ -116,11 +114,8 @@ class Game extends React.Component {
     }
 
     render() {
-        // Adding the const that allow the game comp to display the most recent board position and also check if there is a winner and if the curent square already has a value
         let history = this.state.history
         const current = history[this.state.stepNumber]
-        const winner = calculateWinner(current.squares /*current is a obj so squares is a property*/)
-
 
         let moves = history.map((step, move) => {
             const desc = move ? `Go to move #${move} | ${this.state.pos[move - 1]}  ` : `Go to game start`
@@ -132,9 +127,10 @@ class Game extends React.Component {
         })
 
         let status
-        // a var for diplaying state that is determined by the current value of winner and the state xIsNext value
-        if (winner) {
-            status = 'Winner: ' + winner;
+        if (calculateWinner(current.squares)) {
+            status = 'Winner: ' + calculateWinner(current.squares)[0];
+        } else if (!current.squares.includes(null)) {
+            status = "It's a tie."
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
@@ -143,9 +139,9 @@ class Game extends React.Component {
             <div className="game">
                 <div className="game-board">
                     <Board
-                        // since the board dosent have state anymore we need to pass it in as props as said previously
-                        squares={current.squares /* current board taken from the current const taken from state */}
-                        onClick={(i) => this.handleClick(i) /* just like with the square pass in the refrence to the handle click function bound to 'i' */}
+                        squares={current.squares}
+                        onClick={(i) => this.handleClick(i)}
+                        board={calculateWinner(current.squares) ? calculateWinner(current.squares)[1] : null}
                     />
                 </div>
                 <div className="game-info">
@@ -180,7 +176,7 @@ function calculateWinner(squares) {
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+            return [squares[a], [a, b, c]];
         }
     }
     return null;
