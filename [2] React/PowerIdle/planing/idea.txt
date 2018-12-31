@@ -1,0 +1,9 @@
+Power clicker
+
+An idle game where the goal is to aquire power. You start as humanity and evolve trought the ages. However at one point you make AI that becomes sentient and decides that the entire universe is must be made into a power plant taking it on a quest to wipe out humanity and build a dyson sphere around the entire galaxy. It self destructs after that.
+
+It will have a power number and a material number. Bellow will be a curent zoom level so at game start a village at game end a galaxy encapsulatet by dison speres and black hole generators.
+
+On the side will be a menu you can toggle between power buildings material buildings and reasrch buildings and chosing what tech to reasrch next.
+
+It will be in pixel graphics ofc beacuse i can draw myself and it will be easy to use.
